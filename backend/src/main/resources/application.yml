@@ -1,0 +1,23 @@
+# 모든 프로필 공통 설정. 실행할 때 프로필을 고른다: dev(로컬 실행), test(자동 테스트)
+spring:
+  application:
+    name: eduhub
+  jpa:
+    # NFR-02: 화면 렌더링 중 지연 로딩 쿼리가 몰래 나가는 것을 막는다 (N+1을 서비스 계층에서 드러나게)
+    open-in-view: false
+    hibernate:
+      # 스키마는 Flyway 마이그레이션만 바꾼다. JPA는 엔티티와 테이블이 맞는지 검사만 한다
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Seoul
+  flyway:
+    locations: classpath:db/migration
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  paths-to-match: /api/**

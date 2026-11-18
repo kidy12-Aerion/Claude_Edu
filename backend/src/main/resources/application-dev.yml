@@ -1,0 +1,16 @@
+# 로컬 개발용. 실행: ./gradlew bootRun --args='--spring.profiles.active=dev'
+# 접속 정보는 환경 변수로만 받는다 (NFR-03). 저장소 루트의 .env가 있으면 읽는다
+# Spring Boot는 .env를 자동으로 읽지 않아서 아래 import가 필요하다. backend 폴더에서 실행한다고 보고 ../.env를 가리킨다
+spring:
+  config:
+    import: optional:file:../.env[.properties]
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    # NFR-02: 쿼리 수를 눈으로 확인한다
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

@@ -1,0 +1,6 @@
+# 자동 테스트용. Testcontainers가 PostgreSQL 컨테이너를 띄운다 (Docker 필요)
+# 운영과 같은 DB 종류로 테스트해야 락·제약 조건 동작을 검증할 수 있다 (NFR-01)
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16-alpine:///eduhub
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver

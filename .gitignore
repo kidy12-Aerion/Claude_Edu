@@ -5,7 +5,7 @@ out/
 bin/
 *.class
 *.jar
-!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
 *.war
 *.log
 hs_err_pid*
@@ -25,6 +25,12 @@ pnpm-debug.log*
 *.iml
 *.ipr
 *.iws
+
+# ===== Eclipse (VS Code Java 확장이 만드는 파일 포함) =====
+.classpath
+.project
+.settings/
+.factorypath
 
 # ===== VS Code =====
 .vscode/*
